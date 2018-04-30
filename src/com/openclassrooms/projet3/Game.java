@@ -6,6 +6,7 @@ import com.openclassrooms.projet3.players.CPU;
 import com.openclassrooms.projet3.players.Human;
 import com.openclassrooms.projet3.players.Player;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Game {
@@ -76,7 +77,7 @@ public class Game {
         } while (gameData.getRange() == 0);
     }
 
-    public void setPlayersAndCode () {
+    public void setPlayersAndCode() {
 
         humanPlayer = new Human(gameData);
         CPUPlayer = new CPU(gameData);
@@ -91,11 +92,12 @@ public class Game {
         } else {
             try {
                 gameData.setCodeToGuess(CPUPlayer.createCode());
-            } catch (NotInCodeRangeException e) { }
+            } catch (NotInCodeRangeException e) {
+            }
         }
     }
 
-    public void playGame () {
+    public void playGame() {
 
         System.out.println("Nous sommes donc prêts pour jouer!");
         System.out.println();
@@ -106,21 +108,38 @@ public class Game {
             System.out.print("le code à donc une valeur de :");
             for (int i = 0; i < gameData.getNumberOfCases(); i++)
                 System.out.print(gameData.getCodeToGuess()[i]);
-             System.out.println();
+            System.out.println();
         }
         if (gameData.getHumanRoleChoice() == 1) {
-            Integer[] candidate;// = new Integer[gameData.getNumberOfCases()];
-            boolean won;// = true;
+            Integer[] candidate;
+            boolean notWon = true;
             do {
                 candidate = askForCode(gameData, humanPlayer);
                 result = CPUPlayer.analyse(candidate);
-                won = false;
-            } while (won);
+                if (winningTest(result)){
+                    System.out.println("won");
+                    notWon = false;
+                }
+
+            } while (notWon);
         }
         for (int i = 0; i < gameData.getNumberOfCases(); i++)
             System.out.print(result[i]);
     }
 
+
+    public boolean winningTest(int[] candidate){
+        boolean result;
+        int i=0;
+        do {
+            if (candidate[i] == 0)
+                result = true;
+            elsegit add
+                result = false;
+            i++;
+        }while ((i!=candidate.length) | (result == false));
+        return result;
+    }
 
 
     public Integer[] askForCode(GameData gameData, Player humanPlayer){
