@@ -99,7 +99,8 @@ public class Game {
 
         System.out.println("Nous sommes donc prêts pour jouer!");
         System.out.println();
-        System.out.print("Voulez vous afficher le code à deviner à des fins de debug (oui = 1/non = 2) ? ");
+        System.out.print("Voulez vous afficher le code à deviner à des f" +
+                "ins de debug (oui = 1/non = 2) ? ");
         int entree = keyboard.nextInt();
         if (entree == 1) {
             System.out.print("le code à donc une valeur de :");
