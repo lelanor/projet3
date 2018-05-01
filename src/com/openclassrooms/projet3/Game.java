@@ -129,15 +129,14 @@ public class Game {
 
 
     public boolean winningTest(int[] candidate){
-        boolean result;
-        int i=0;
-        do {
+        boolean result = false;
+        int count = 0;
+        for(int i=0; i<gameData.getNumberOfCases(); i++) {
             if (candidate[i] == 0)
-                result = true;
-            elsegit add
-                result = false;
-            i++;
-        }while ((i!=candidate.length) | (result == false));
+                count += 1;
+        }
+        if (count == gameData.getNumberOfCases())
+            result = true;
         return result;
     }
 
