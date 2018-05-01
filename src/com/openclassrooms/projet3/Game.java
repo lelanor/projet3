@@ -1,6 +1,8 @@
 package com.openclassrooms.projet3;
 
 import com.openclassrooms.projet3.com.openclassrooms.projet3.data.GameData;
+import com.openclassrooms.projet3.evaluator.Evaluator;
+import com.openclassrooms.projet3.evaluator.EvaluatorFactory;
 import com.openclassrooms.projet3.exceptions.NotInCodeRangeException;
 import com.openclassrooms.projet3.players.CPU;
 import com.openclassrooms.projet3.players.Human;
@@ -99,6 +101,10 @@ public class Game {
 
     public void playGame() {
 
+        EvaluatorFactory evaluatorFactory = new EvaluatorFactory();
+        Evaluator evaluator;
+        evaluator = evaluatorFactory.instantiateEvaluator(gameData);
+
         System.out.println("Nous sommes donc prêts pour jouer!");
         System.out.println();
         System.out.print("Voulez vous afficher le code à deviner à des f" +
@@ -116,7 +122,7 @@ public class Game {
             do {
                 candidate = askForCode();
                 result = CPUPlayer.analyse(candidate);
-                if (winningTest(result)){
+                if (evaluator.winningTest(result)){
                     System.out.println("won");
                     notWon = false;
                 }
@@ -128,7 +134,7 @@ public class Game {
     }
 
 
-    public boolean winningTest(int[] candidate){
+    /*public boolean winningTest(int[] candidate){
         boolean result = false;
         int count = 0;
         for(int i=0; i<candidate.length; i++) {
@@ -138,7 +144,7 @@ public class Game {
         if (count == gameData.getNumberOfCases())
             result = true;
         return result;
-    }
+    }*/
 
 
     public Integer[] askForCode(){
