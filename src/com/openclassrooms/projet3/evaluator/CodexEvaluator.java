@@ -24,7 +24,7 @@ public class CodexEvaluator implements Evaluator {
     }
 
     @Override
-    public int[] analyse(int[] candidate) {
+    public int[] analyse(Integer[] candidate) {
         return new int[0];
     }
 }

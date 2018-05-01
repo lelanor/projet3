@@ -13,12 +13,32 @@ public class MMEvaluator implements Evaluator {
     @Override
     public boolean winningTest(int[] candidate) {
         boolean result = false;
-
+        if ((candidate[0] == gameData.getNumberOfCases()) && (candidate[1] == 0)) {
+            result = true;
+        }
         return result;
     }
 
     @Override
-    public int[] analyse(int[] candidate) {
-        return new int[0];
+    public int[] analyse(Integer[] candidate) {
+
+        int[] result = new int[2];
+        for (int  i=0; i<candidate.length; i++){
+            if (candidate[i] == gameData.getCodeToGuess()[i]){
+                result[0] += 1;
+                candidate[i] = -1;
+            }
+        }
+
+        for (int i = 0; i < candidate.length; i++) {
+            for (int j = 0; j < candidate.length; j++ ) {
+                if ( candidate[i] == gameData.getCodeToGuess()[j]) {
+                    result[1] += 1;
+                    candidate[j] = -1;
+                }
+            }
+        }
+
+        return result;
     }
 }

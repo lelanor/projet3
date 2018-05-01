@@ -13,5 +13,5 @@ public abstract class Player {
 
     public abstract Integer[] createCode() throws NotInCodeRangeException;
 
-    public abstract int[] analyse(Integer[] candidate);
+    //public abstract int[] analyse(Integer[] candidate);
 }

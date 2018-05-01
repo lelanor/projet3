@@ -121,7 +121,7 @@ public class Game {
             boolean notWon = true;
             do {
                 candidate = askForCode();
-                result = CPUPlayer.analyse(candidate);
+                result = evaluator.analyse(candidate);
                 if (evaluator.winningTest(result)){
                     System.out.println("won");
                     notWon = false;
@@ -129,22 +129,9 @@ public class Game {
 
             } while (notWon);
         }
-        for (int i = 0; i < gameData.getNumberOfCases(); i++)
+        for (int i = 0; i < result.length; i++)
             System.out.print(result[i]);
     }
-
-
-    /*public boolean winningTest(int[] candidate){
-        boolean result = false;
-        int count = 0;
-        for(int i=0; i<candidate.length; i++) {
-            if (candidate[i] == 0)
-                count += 1;
-        }
-        if (count == gameData.getNumberOfCases())
-            result = true;
-        return result;
-    }*/
 
 
     public Integer[] askForCode(){

@@ -24,7 +24,7 @@ public class CPU extends Player {
         return code;
     }
 
-    @Override
+    /*@Override
     public int[] analyse(Integer[] candidate) {
 
         int[] result;
@@ -39,5 +39,5 @@ public class CPU extends Player {
 
         }
         return result;
-    }
+    }*/
 }
