@@ -126,11 +126,12 @@ public class Game {
                     System.out.println("won");
                     notWon = false;
                 }
-
+                for (int i = 0; i < result.length; i++)
+                    System.out.print(result[i]);
+                System.out.println();
             } while (notWon);
         }
-        for (int i = 0; i < result.length; i++)
-            System.out.print(result[i]);
+
     }
 
 
