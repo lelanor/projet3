@@ -88,7 +88,7 @@ public class Game {
             result = new int[gameData.getNumberOfCases()];
 
         if (gameData.getHumanRoleChoice() == 2) {
-            gameData.setCodeToGuess(askForCode(gameData, humanPlayer));
+            gameData.setCodeToGuess(askForCode());
         } else {
             try {
                 gameData.setCodeToGuess(CPUPlayer.createCode());
@@ -114,7 +114,7 @@ public class Game {
             Integer[] candidate;
             boolean notWon = true;
             do {
-                candidate = askForCode(gameData, humanPlayer);
+                candidate = askForCode();
                 result = CPUPlayer.analyse(candidate);
                 if (winningTest(result)){
                     System.out.println("won");
@@ -131,7 +131,7 @@ public class Game {
     public boolean winningTest(int[] candidate){
         boolean result = false;
         int count = 0;
-        for(int i=0; i<gameData.getNumberOfCases(); i++) {
+        for(int i=0; i<candidate.length; i++) {
             if (candidate[i] == 0)
                 count += 1;
         }
@@ -141,7 +141,7 @@ public class Game {
     }
 
 
-    public Integer[] askForCode(GameData gameData, Player humanPlayer){
+    public Integer[] askForCode(){
         Integer[] code = new Integer[gameData.getNumberOfCases()];
         boolean notOK;
         do {
