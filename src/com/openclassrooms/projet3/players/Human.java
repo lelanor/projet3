@@ -32,4 +32,8 @@ public class Human extends Player {
         return code;
     }
 
+    /*@Override
+    public int[] analyse(Integer[] candidate) {
+        return new int[0];
+    }*/
 }

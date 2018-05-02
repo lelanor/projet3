@@ -25,11 +25,6 @@ public class CodexEvaluator implements Evaluator {
 
     @Override
     public int[] analyse(Integer[] candidate) {
-
-        int [] result = new int[gameData.getNumberOfCases()];
-        for (int i = 0; i < gameData.getNumberOfCases(); i++) {
-            result[i] = gameData.getCodeToGuess()[i].compareTo(candidate[i]);
-        }
-        return result;
+        return new int[0];
     }
 }

@@ -24,4 +24,20 @@ public class CPU extends Player {
         return code;
     }
 
+    /*@Override
+    public int[] analyse(Integer[] candidate) {
+
+        int[] result;
+        if (gameData.getGameChoice() == 1)
+            result = new int[2];
+        else {
+            result = new int[gameData.getNumberOfCases()];
+            for (int i = 0; i < gameData.getNumberOfCases(); i++) {
+                result[i] = gameData.getCodeToGuess()[i].compareTo(candidate[i]);
+                System.out.println(result[i]);
+            }
+
+        }
+        return result;
+    }*/
 }
