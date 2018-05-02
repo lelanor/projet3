@@ -1,5 +1,6 @@
 package com.openclassrooms.projet3;
 
+import com.openclassrooms.projet3.artificialintelligence.AI;
 import com.openclassrooms.projet3.com.openclassrooms.projet3.data.GameData;
 import com.openclassrooms.projet3.evaluator.Evaluator;
 import com.openclassrooms.projet3.evaluator.EvaluatorFactory;
@@ -130,6 +131,8 @@ public class Game {
                     System.out.print(result[i]);
                 System.out.println();
             } while (notWon);
+        } else {
+            AI ai = new AI(gameData);
         }
 
     }

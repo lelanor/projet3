@@ -9,7 +9,6 @@ public class GameData {
     private Integer numberOfCases;
     private Integer range;
     private Integer[] codeToGuess;
-    private List possibleCombinations;
 
     public GameData(){
         this.setGameChoice(0);
@@ -53,13 +52,5 @@ public class GameData {
 
     public void setCodeToGuess(Integer[] codeToGuess) {
         this.codeToGuess = codeToGuess;
-    }
-
-    public List getPossibleCombinations() {
-        return possibleCombinations;
-    }
-
-    public void setPossibleCombinations(List possibleCombinations) {
-        this.possibleCombinations = possibleCombinations;
     }
 }
